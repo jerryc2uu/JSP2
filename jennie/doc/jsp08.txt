@@ -1,0 +1,16 @@
+#jsp08
+
+Dynamic Web Project를 blpink 라는 이름으로 만들고
+요청 매핑은 *.black으로 요청하는 모든 요청을 분석해서 실행시킬
+디스패치 Servlet BlDispatch를 제작해서
+
+properties 파일 : bl.properties
+http://localhost/blpink/ 로 요청하면
+/webapp/WEB-INF/views/main.jsp 를 보여주도록 프로젝트를 셋팅하라
+
+	[추가]
+		데이터베이스 셋팅하는 파일(context.xml)은 복사해서 붙여넣어라
+
+	[참고]
+		이 프로젝트는 연습용
+		
