@@ -28,7 +28,7 @@
 	<div class="w3-content mxw750 w3-margin-top">
 		<!-- 페이지 헤더 -->
 		<header class="w3-col w3-card-4 mgb20">
-			<h1 class="w3-pink w3-center w3-padding mg0">BlackPink 댓글 게시글 작성</h1>
+			<h1 class="w3-pink w3-center w3-padding mg0">BlackPink 댓글 게시글 수정</h1>
 			<nav class="w3-bar w3-amber">
 				<div class="w3-col w150 w3-button w3-small w3-green menubtn" id="hbtn">home</div>
 <c:if test="${empty SID}">
@@ -50,22 +50,15 @@
 				</div>
 				<div class="w3-rest w3-padding">
 					<div class="w3-col w3-border-bottom">
-						<span class="w3-third w3-left mgb10 ft10 "><strong>글 내용</strong></span>
+						<span class="w3-col w3-left mgb10 ft10 "><strong>${DATA.sdate}</strong></span>
 					</div>
-					<form method="POST" action="/whistle/reboard/reboardWriteProc.blp" 
+					<input type="hidden" id="obody" value="${DATA.body}">
+					<form method="POST" action="/whistle/reboard/reboardEditProc.blp" 
 											id="frm" name="frm" class="w3-col w3-margin-top">
 						<input type="hidden" id="nowPage" name="nowPage" value="${param.nowPage}">
-						<input type="hidden" id="mno" name="mno" value="${DATA.mno}">
-						<%--
-							요청객체에 입력해 놓은 속성을 EL에서 꺼내는 방법은
-								${requestScope.속성키값}
-							세션의 경우
-								${sessionScope.속성키값}
-								
-								${requestScope.PAGE.nowPage}가 정석..
-						 --%>
+						<input type="hidden" id="bno" name="bno" value="${DATA.bno}">
 						<textarea class="w3-col w3-padding ft12" id="body" name="body"
-									style="resize: none;"></textarea>
+									style="resize: none;">${DATA.body}</textarea>
 					</form>
 				</div>
 			</div>
@@ -74,7 +67,7 @@
 		<div class="w3-col w3-margin-top w3-card-4">
 			<div class="w3-third w3-button w3-green" id="listbtn">리스트</div>
 			<div class="w3-third w3-button w3-blue" id="rbtn">리셋</div>
-			<div class="w3-third w3-button w3-deep-orange" id="wpbtn">글등록</div>
+			<div class="w3-third w3-button w3-deep-orange" id="editbtn">글수정</div>
 		</div>	
 </body>
 </html>

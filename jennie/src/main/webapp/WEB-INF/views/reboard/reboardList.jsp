@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>BlackPink 방명록</title>
+<title>BlackPink 댓글게시판</title>
 <link rel="stylesheet" type="text/css" href="/whistle/resources/css/w3.css">
 <link rel="stylesheet" type="text/css" href="/whistle/resources/css/user.css">
 <script type="text/javascript" src="/whistle/resources/js/jquery-3.6.0.min.js"></script>
@@ -29,7 +29,7 @@
 		<!-- 페이지 헤더 -->
 		<header class="w3-col w3-card-4 mgb20">
 			<h1 class="w3-pink w3-center w3-padding mg0">BlackPink 댓글 게시판</h1>
-			<nav class="w3-bar w3-yellow">
+			<nav class="w3-bar w3-amber">
 				<div class="w3-col w150 w3-button w3-small w3-green menubtn" id="hbtn">home</div>
 <c:if test="${empty SID}">
 				<div class="w3-col w150 w3-button w3-small w3-deep-orange w3-right menubtn" id="lbtn">login</div>
@@ -52,12 +52,12 @@
 				</div>
 				<div class="w3-rest w3-padding">
 					<div class="w3-col w3-border-bottom">
-						<div class="w3-col w3-twothird w3-right">
+						<div class="w3-col w3-twothird w3-right" id="${data.bno}">
 							<div class="w3-col w3-button w3-small w70 w3-blue w3-right">댓글</div>
-			<c:if test="${SID eq data.id}">
+		<c:if test="${SID eq data.id}">
 							<div class="w3-col w3-button w3-small w70 w3-orange w3-right">수정</div>
 							<div class="w3-col w3-button w3-small w70 w3-red w3-right">삭제</div>
-			</c:if>
+		</c:if>
 						</div>
 						<span class="w3-third w3-left mgb10 ft10"><small>${data.sdate}</small></span>
 					</div>
@@ -71,7 +71,7 @@
 		
 		<!-- 페이지 처리 시작 -->
 		<div class="w3-center">
-			<div class="w3-bar w3-border w3-margin-top w3-margin-bottom">
+			<div class="w3-bar w3-border w3-round-medium w3-card w3-margin-top w3-margin-bottom">
 	<c:if test="${PAGE.startPage eq 1}">
 				<div class="w3-bar-item w3-light-grey">&laquo;</div>
 	</c:if>
@@ -97,9 +97,26 @@
 		<!-- 페이지 처리 태그 끝 -->
 	</div>
 	
+	<!-- 메세지 출력 모달창 -->
+<c:if test="${not empty MSG}"> <%-- MSG라는 키값으로 기억된 데이터 있으면 보여줌 --%>
+	<div id="modal" class="w3-modal" style="display:block;">
+	    <div class="w3-modal-content mxw650 w3-animate-top w3-card-4">
+	      <header class="w3-container w3-blue"> 
+	        <span onclick="document.getElementById('modal').style.display='none'" 
+	        class="w3-button w3-display-topright">&times;</span>
+	        <h2>BlackPink Message</h2>
+	      </header>
+	      <div class="w3-container w3-center">
+	        <h4>${MSG}</h4>
+	      </div>
+	    </div>
+ 	</div>
+</c:if>
+	
 	<!-- 데이터 전송용 form 태그 -->
 	<form method="POST" action="/whistle/reboard/reboardList.blp" id="frm" name="frm">
 		<input type="hidden" id="nowPage" name="nowPage" value="${PAGE.nowPage}">
+		<input type="hidden" id="bno" name="bno">
 	</form>
 </body>
 </html>

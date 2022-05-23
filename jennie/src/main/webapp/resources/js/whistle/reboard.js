@@ -55,6 +55,55 @@ $(document).ready(function(){
 		$(location).attr('href', addr);
 	});
 	
+	//댓글 등록 버튼 클릭 이벤
+	$('#cmtbtn').click(function(){
+		var btxt = $('#body').val();
+		btxt = btxt.trim();
+		
+		if(!btxt) {
+			$('#body').focus();
+			return;
+		}
+		
+		if(btxt.length > 200) {
+			btxt = btxt.subString(0, 200);
+			$('#body').val(btxt);
+			alert('코멘트의 글자수는 200자를 초과할 수 없습니다.');
+			return;
+		}
+		
+		$('#frm').submit();
+	});
+	
+	$('.w3-button.w70').click(function(){
+		var btxt = $(this).html();
+		
+		//글번호
+		var sno = $(this).parent().attr('id');
+
+		$('#bno').val(sno);
+		
+		if(btxt == '댓글') {
+			/*
+				질의명령에서 뽑아오므로 무쓸모
+			var tbody = $('#bd'+sno).html();
+				//bno == 1001 ==> #db1001
+			if(tbody.length >= 10) {
+				tbody = tbody.subString(0, 10) + '...';
+			}*/
+			
+			//$('#body').val(tbody); 질의명령에서 뽑아올것			
+			$('#frm').attr('action', '/whistle/reboard/reboardComment.blp');
+		} else if(btxt == '삭제') {
+			$('#frm').attr('action', '/whistle/reboard/reboardDel.blp');
+		} else if(btxt == '수정') {
+			$('#frm').attr('action', '/whistle/reboard/reboardEdit.blp');
+		}
+		
+		$('#frm').submit();
+	});
+	
+	//글쓰기 페이지
 	$('#listbtn').click(function(){
 		// form 태그의 액션 속성값 변경
 		$('#frm').attr('action', '/whistle/reboard/reboardList.blp');
@@ -73,7 +122,6 @@ $(document).ready(function(){
 	$('#wpbtn').click(function(){
 		//입력된 글 유효성 검사
 		var txt = $('#body').val();
-		
 		txt = txt.trim();
 		if(!txt || txt.length == 0) {
 			$('#body').val('');
@@ -81,7 +129,27 @@ $(document).ready(function(){
 			return;
 		}
 		
+		alert(txt);
 		$('#body').val(txt);
+		
+		$('#frm').submit();
+	});
+	
+	//글수정 버튼 이벤트
+	$('#editbtn').click(function(){
+		var txt = $('#body').val();
+		var otxt = $('#obody').val();
+		
+		if(txt == otxt) {
+			return;
+		}
+		
+		if(txt.length > 200) {
+			txt = txt.subString(0, 200);
+			$('#body').val(txt);
+			alert('코멘트의 글자수는 200자를 초과할 수 없습니다.');
+			return;
+		}
 		
 		$('#frm').submit();
 	});

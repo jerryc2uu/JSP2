@@ -28,7 +28,7 @@
 	<div class="w3-content mxw750 w3-margin-top">
 		<!-- 페이지 헤더 -->
 		<header class="w3-col w3-card-4 mgb20">
-			<h1 class="w3-pink w3-center w3-padding mg0">BlackPink 댓글 게시글 작성</h1>
+			<h1 class="w3-pink w3-center w3-padding mg0">BlackPink 댓글 작성</h1>
 			<nav class="w3-bar w3-amber">
 				<div class="w3-col w150 w3-button w3-small w3-green menubtn" id="hbtn">home</div>
 <c:if test="${empty SID}">
@@ -50,12 +50,13 @@
 				</div>
 				<div class="w3-rest w3-padding">
 					<div class="w3-col w3-border-bottom">
-						<span class="w3-third w3-left mgb10 ft10 "><strong>글 내용</strong></span>
+						<span class="w3-col w3-left mgb10 ft10 "><strong>글 내용 : </strong>${DATA.body}${DATA.body.length() le 10 ? '' : '...'}</span>
 					</div>
 					<form method="POST" action="/whistle/reboard/reboardWriteProc.blp" 
 											id="frm" name="frm" class="w3-col w3-margin-top">
 						<input type="hidden" id="nowPage" name="nowPage" value="${param.nowPage}">
 						<input type="hidden" id="mno" name="mno" value="${DATA.mno}">
+						<input type="hidden" id="upno" name="upno" value="${DATA.upno}">
 						<%--
 							요청객체에 입력해 놓은 속성을 EL에서 꺼내는 방법은
 								${requestScope.속성키값}
@@ -74,7 +75,7 @@
 		<div class="w3-col w3-margin-top w3-card-4">
 			<div class="w3-third w3-button w3-green" id="listbtn">리스트</div>
 			<div class="w3-third w3-button w3-blue" id="rbtn">리셋</div>
-			<div class="w3-third w3-button w3-deep-orange" id="wpbtn">글등록</div>
+			<div class="w3-third w3-button w3-deep-orange" id="cmtbtn">댓글등록</div>
 		</div>	
 </body>
 </html>

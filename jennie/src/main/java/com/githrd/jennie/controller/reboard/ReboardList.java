@@ -25,6 +25,8 @@ public class ReboardList implements BlpInter {
 			nowPage = Integer.parseInt(spage);
 		}
 		
+		String msg = req.getParameter("msg");
+		
 		//총 게시글 수
 		ReboardDao rDao = new ReboardDao();
 		int total = rDao.getTotalCount();
@@ -36,7 +38,9 @@ public class ReboardList implements BlpInter {
 		//데이터 심고
 		req.setAttribute("LIST", list);
 		req.setAttribute("PAGE", page);
-		
+		if(msg != null) {			
+			req.setAttribute("MSG", msg);
+		}
 		//뷰 부르고
 		return view;
 	}
