@@ -91,7 +91,7 @@ public class ReboardSQL {
 			buff.append("UPDATE ");
 			buff.append("    reboard ");
 			buff.append("SET ");
-			buff.append("    body = ? ");
+			buff.append("    body = ? ");	
 			buff.append("WHERE ");
 			buff.append("    rbno = ? ");
 			break;

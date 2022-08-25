@@ -1,6 +1,7 @@
 package com.githrd.jennie.controller.reboard;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -33,8 +34,11 @@ public class ReboardList implements BlpInter {
 		
 		PageUtil page = new PageUtil(nowPage, total);
 		
+		System.out.println(page);
+		
 		ArrayList<BoardVO> list = rDao.getList(page);		
 		
+		System.out.println(list);
 		//데이터 심고
 		req.setAttribute("LIST", list);
 		req.setAttribute("PAGE", page);

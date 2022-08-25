@@ -74,7 +74,7 @@ $(document).ready(function(){
 		
 		$('#frm').submit();
 	});
-	
+	//댓글 대댓글/수정/삭제
 	$('.w3-button.w70').click(function(){
 		var btxt = $(this).html();
 		

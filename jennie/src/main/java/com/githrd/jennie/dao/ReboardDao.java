@@ -1,6 +1,7 @@
 package com.githrd.jennie.dao;
 
 import java.sql.*;
+
 import java.util.*;
 
 import com.githrd.jennie.db.BlpDBCP;
@@ -21,7 +22,7 @@ public class ReboardDao {
 		rSQL = new ReboardSQL();
 	}
 	
-	//게시글 리스트 조회 전담 처리 함수
+	//댓글 리스트 조회 전담 처리 함수
 	public ArrayList<BoardVO> getList(PageUtil page) {
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 		
@@ -68,7 +69,7 @@ public class ReboardDao {
 		return list;
 	}
 	
-	//총 게시글 수 조회 전담 처리함수
+	//총 댓글 수 조회 전담 처리함수
 	public int getTotalCount() {
 		int cnt = 0;
 		
@@ -154,7 +155,7 @@ public class ReboardDao {
 		return cnt;
 	}
 	
-	//댓글 쓰기 사용 데이터 조회 전담 처리 함수
+	//댓글의 댓글 작성 시 원댓글 데이터 조회 전담 처리 함수
 	public BoardVO getReboardInfo(int bno, String id) {
 		BoardVO bVO = new BoardVO();
 		

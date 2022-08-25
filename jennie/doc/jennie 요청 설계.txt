@@ -139,28 +139,13 @@
 				성공 : /whistle/reboard/reboardList.blp		
 				실패 : forward ] redirect.jsp
 						/whistle/reboard/reboardWrite.blp
-------------------------
-# 댓글 게시판 글등록 처리 요청
-요청내용 : /whistle/reboard/reboardWriteProc.blp
-파라미터 : nowPage, mno, body
-컨트롤러 : com.githrd.jennie.controller.reboard.ReboardWriteProc
-뷰		 : redirect
-				성공 : /whistle/reboard/reboardList.blp		
-				실패 : forward ] redirect.jsp
-						/whistle/reboard/reboardWrite.blp
-------------------------
+-----------------------------------
 # 댓글 게시판 댓글쓰기 폼보기 요청
 요청내용 : /whistle/reboard/reboardComment.blp
 파라미터 : nowPage
 컨트롤러 : com.githrd.jennie.controller.reboard.ReboardComment
 뷰		 : /WEB-INF/views/reboard/reboardComment.jsp
-------------------------
-# 댓글 게시판 댓글쓰기 폼보기 요청
-요청내용 : /whistle/reboard/reboardComment.blp
-파라미터 : nowPage
-컨트롤러 : com.githrd.jennie.controller.reboard.ReboardComment
-뷰		 : /WEB-INF/views/reboard/reboardComment.jsp
-------------------------
+-----------------------------------
 # 댓글 게시판 댓글등록 처리 요청
 요청내용 : /whistle/reboard/reboardWriteProc.blp
 파라미터 : nowPage, upno, mno, body
@@ -213,7 +198,7 @@
 ------------------------
 # 파일 게시판 글등록 처리 요청
 요청내용 : /whistle/board/boardWriteProc.blp
-파라미터 : nowPage, mno, body
+파라미터 : nowPage, title, body, [, file]
 컨트롤러 : com.githrd.jennie.controller.board.BoardWriteProc
 뷰		 : redirect ]
 				성공 : /whistle/board/boardList.blp

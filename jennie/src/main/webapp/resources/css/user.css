@@ -219,10 +219,6 @@
 	font-weight: bold;
 }
 
-.inblock {
-	display: inline-block;
-}
-
 .w200 {
 	width: 200px;
 }
@@ -268,6 +264,14 @@
 	padding: 10px;
 }
 
+.pd15 {
+	padding: 15px;
+}
+
+.pd20 {
+	padding: 20px;
+}
+
 .pdh1 {
 	padding: 0px 1px;
 }
@@ -278,6 +282,22 @@
 
 .pdh10 {
 	padding: 0px 5px;
+}
+
+.pdh20 {
+	padding: 0px 20px;
+}
+
+.pdh50 {
+	padding: 0px 50px;
+}
+
+.frmpadding{
+	padding: 20px 50px 20px 10px;
+}
+
+.pd20-50 {
+	padding: 20px 50px;
 }
 
 .clslbl {
@@ -295,6 +315,18 @@
 .imgsrc {
 	width: 100px;
 	height: 100px;
+}
+
+.picbox {
+	width: 100px;
+	height: 100px;
+	margin-left: 10px;
+	border: 1px solid gray;
+	overflow: hidden;
+}
+.pic {
+	width: 100px;
+	height: auto;
 }
 
 .mt0 {

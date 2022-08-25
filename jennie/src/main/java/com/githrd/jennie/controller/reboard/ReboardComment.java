@@ -33,6 +33,7 @@ public class ReboardComment implements BlpInter {
 		ReboardDao rDao = new ReboardDao();
 		BoardVO bVO = rDao.getReboardInfo(bno, sid);
 		//데이터 심고
+		System.out.println(bVO);
 		req.setAttribute("DATA", bVO);
 		//뷰 부르고
 		return view;
